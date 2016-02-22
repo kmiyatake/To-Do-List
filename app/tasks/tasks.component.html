@@ -1,0 +1,14 @@
+<div *ngIf="selectedTask">
+    <h4>
+        Need to do the task {{selectedTask.content | uppercase}}.
+    </h4>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
+
+<h2>Below are the things to do:</h2>
+<ul class="tasks">
+    <lh>Priority / Task</lh>
+    <li *ngFor="#task of tasks" [class.selected]="task === selectedTask" (click)="onSelect(task)">
+        <span class="badge">{{task.priority}}</span> {{task.content}}
+    </li>
+</ul>
