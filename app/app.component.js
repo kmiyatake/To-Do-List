@@ -1,4 +1,4 @@
-System.register(['angular2/core', './tasks/tasks.component', './tasks/task.service', 'angular2/router', './Dashboard/dashboard.component', './tasks/task-detail.component'], function(exports_1) {
+System.register(['angular2/core', './tasks/tasks.component', './tasks/task.service', 'angular2/router', './Dashboard/dashboard.component', './tasks/task-detail.component', './form/form.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', './tasks/tasks.component', './tasks/task.servi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tasks_component_1, task_service_1, router_1, dashboard_component_1, task_detail_component_1;
+    var core_1, tasks_component_1, task_service_1, router_1, dashboard_component_1, task_detail_component_1, form_component_1;
     var AppComponent;
     return {
         setters:[
@@ -29,6 +29,9 @@ System.register(['angular2/core', './tasks/tasks.component', './tasks/task.servi
             },
             function (task_detail_component_1_1) {
                 task_detail_component_1 = task_detail_component_1_1;
+            },
+            function (form_component_1_1) {
+                form_component_1 = form_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -40,7 +43,7 @@ System.register(['angular2/core', './tasks/tasks.component', './tasks/task.servi
                         selector: 'my-app',
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [router_1.ROUTER_PROVIDERS, task_service_1.TaskService],
-                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n        <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n        <a [routerLink]=\"['Tasks']\">Tasks</a>\n    </nav>\n    <router-outlet></router-outlet>\n    ",
+                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n        <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n        <a [routerLink]=\"['Tasks']\">Tasks</a>\n        <a [routerLink]=\"['Form']\">New Task</a>\n    </nav>\n    <router-outlet></router-outlet>\n    ",
                         styleUrls: ['app/styles/app.component.css']
                     }),
                     router_1.RouteConfig([
@@ -59,6 +62,11 @@ System.register(['angular2/core', './tasks/tasks.component', './tasks/task.servi
                             path: '/detail/:id',
                             name: 'TaskDetail',
                             component: task_detail_component_1.TaskDetailComponent
+                        },
+                        {
+                            path: '/form',
+                            name: 'Form',
+                            component: form_component_1.TaskFormComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [])

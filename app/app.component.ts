@@ -4,6 +4,7 @@ import {TaskService} from './tasks/task.service';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import {DashboardComponent} from './Dashboard/dashboard.component';
 import {TaskDetailComponent} from './tasks/task-detail.component';
+import {TaskFormComponent} from './form/form.component';
 
 @Component({
     selector: 'my-app',
@@ -14,6 +15,7 @@ import {TaskDetailComponent} from './tasks/task-detail.component';
     <nav>
         <a [routerLink]="['Dashboard']">Dashboard</a>
         <a [routerLink]="['Tasks']">Tasks</a>
+        <a [routerLink]="['Form']">New Task</a>
     </nav>
     <router-outlet></router-outlet>
     `,
@@ -36,6 +38,11 @@ import {TaskDetailComponent} from './tasks/task-detail.component';
         path: '/detail/:id',
         name: 'TaskDetail',
         component: TaskDetailComponent
+    },
+    {
+        path: '/form',
+        name: 'Form',
+        component: TaskFormComponent
     }
 ])
 

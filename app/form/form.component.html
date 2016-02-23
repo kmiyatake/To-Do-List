@@ -1,0 +1,50 @@
+<h1>New Task Form</h1>
+
+<form (ngSubmit)="onSubmit()" [ngFormModel]="taskForm" #f="ngForm">
+    
+    <div class="form-row">
+        <div class="formHeading">Task Details</div>
+        <textarea type="text" id="taskDetails" ngControl="taskDetails" placeholder="Enter Task Description"></textarea>
+        <div class="errorMessage" *ngIf="f.form.controls.taskDetails.touched && !f.form.controls.taskDetails.valid">Task details is required</div>
+    </div>
+    
+    <div class="form-row">
+        <div class="formHeading">Priority</div>
+        <div class="radio">
+            <label *ngFor="#item of radioItems">
+                <input type="radio" name="priority" (click)="model.options = item" [checked]="item === model.options" />{{item}}
+            </label>
+        </div>
+        
+        <!-- <div class="radio">
+        <label>
+            <input type="radio" name="priorityRadio" value=1 ngControl="priority" [checked]=1 checked>1 (Highest)
+        </label>
+        <label>
+            <input type="radio" name="priorityRadio" value=2 ngControl="priority">2
+        </label>
+        <label>
+            <input type="radio" name="priorityRadio" value=3 ngControl="priority">3
+        </label>
+        <label>
+            <input type="radio" name="priorityRadio" value=4 ngControl="priority">4
+        </label>
+        <label>
+            <input type="radio" name="priorityRadio" value=5 ngControl="priority">5 (Lowest)
+        </label> -->
+        
+    <!-- </div> -->
+    </div>
+
+    <div class="form-row">
+        <button type="submit" [disabled]="!f.form.valid">Save</button>
+    </div>
+
+</form>
+
+<div class="form-row">
+    <div *ngIf="payLoad"><strong>The form contains the following values</strong></div>
+    <div>
+        {{payLoad}}
+    </div>
+</div>
